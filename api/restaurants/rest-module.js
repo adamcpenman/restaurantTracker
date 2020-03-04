@@ -26,24 +26,26 @@ function add(rest) {
         })
 }
 
-// function update(changes, id) {
-//     return db('restaurants')
-//         .where({ id })
-//         .update(changes)
-//         .returning('*')
-// }
+
+
 function update(changes, id) {
     return db('restaurants')
         .where({ id })
         .update(changes)
-        .then(id => {
-            if (id > 0) {
-                findById(id)
-            } else {
-                return null
-            }
-    })
+        .returning('*')
 }
+// function update(changes, id) {
+//     return db('restaurants')
+//         .where({ id })
+//         .update(changes)
+//         .then(id => {
+//             if (id > 0) {
+//                 findById(id)
+//             } else {
+//                 return null
+//             }
+//     })
+// }
 
 function remove(id) {
     return db('restaurants')

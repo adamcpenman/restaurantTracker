@@ -6,8 +6,9 @@ const restRouter = require('./api/restaurants/rest-router')
 
 const server = express()
 
-server.use(helmet())
 server.use(cors())
+
+server.use(helmet())
 
 server.use(express.json())
 
