@@ -18,12 +18,12 @@ function findById(id) {
 }
 
 function add(rest) {
-    // return db('restaurants').insert(rest).returning('*')
-    return db('restaurants')
-        .insert(rest)
-        .then(id => {
-            return findById(id[0])
-        })
+    return db('restaurants').insert(rest).returning('*')
+    // return db('restaurants')
+    //     .insert(rest)
+    //     .then(id => {
+    //         return findById(id[0])
+    //     })
 }
 
 

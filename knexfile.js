@@ -3,11 +3,14 @@ module.exports = {
     client: 'sqlite3',
     useNullAsDefault: true,
     connection: {
-      filename: './database/rest.db3',
+      filename: process.env.DATABASE_URL,
+      // filename: './database/rest.db3',
     },
     pool: {
-      afterCreate: (conn, done) => {
-        conn.run('PRAGMA foreign_keys = ON', done);
+      min:2,
+      max:10
+      // afterCreate: (conn, done) => {
+      //   conn.run('PRAGMA foreign_keys = ON', done);
       },
     },
     migrations: {
@@ -16,5 +19,4 @@ module.exports = {
     seeds: {
       directory: './database/seeds',
     },
-  },
-};
+  }
